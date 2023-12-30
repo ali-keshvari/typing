@@ -4,11 +4,13 @@
       <h1 class="title has-text-centered">
         Typing Challenge
       </h1>
-      <p class="has-text-centered">Random Text</p>
+      <p class="has-text-centered">
+        <span [class]="compare(letter,inputText[i])" *ngFor="let letter of randomText.split('');let i = index">{{letter}}</span>
+      </p>
       <div class="field">
-        <input type="text" class="input">
+        <input type="text" class="input" (input)="onChangeInput($any($event.target).value)">
       </div>
-      <div class="box has-text-centered">
+      <div class="box has-text-centered" *ngIf="inputText === randomText">
         <h1 class="title">Success!</h1>
       </div>
     </div>
